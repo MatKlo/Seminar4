@@ -1,0 +1,8 @@
+budete psat jen jednumetodu do tridy Korveta a to metodu bran_se:
+
+def bran_se(self, uder):
+   ...
+   prakticky stejna jako z tridy Lod, jen u poskozeni bude na konci neco jako + 2
+   ...
+
+
