@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+s#!/usr/bin/env python3
 
 from kostka import Kostka 
 from lod import Lod 
@@ -29,7 +29,7 @@ class Sektor:
     def _vykresli(self):
         self._vycisti()
         print(f'================ Sektor {self._jmeno} ================\n')
-        print('Lodě:\n')
+        print('Lode:\n')
         self._vypis_lod(self._lod_1)
         self._vypis_lod(self._lod_2)
         print()
@@ -75,6 +75,7 @@ if __name__ == '__main__':
     l = Lod("Yachta", kostka=k, trup=80, utok=60, stit=70)
     
     orion = Sektor(lodicka, clun, k, "Orion")
+    
     gamma = Sektor(lodicka, l, k, "Gamma")
 
     orion.souboj()

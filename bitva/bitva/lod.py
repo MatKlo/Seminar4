@@ -24,12 +24,15 @@ class Lod:
     def je_operacni(self):
         return self._trup > 0
         
-    def graficky_trup(self):
+    def graficky_ukazatel(self, aktualni, maximalni):
         celkem = 20
-        pocet  = int(self._trup / self._max_trup * celkem)
+        pocet  = int(aktualni / maximalni * celkem)
         if pocet == 0 and self.je_operacni():
             pocet = 1
         return f"[{'#'*pocet}{' '*(celkem-pocet)}]"
+
+    def graficky_trup(self):
+        return graficky_ukazatel (self._trup, self._max_trup)
 
     def utoc(self, souper):
         uder = self._utok + self._kostka.hod()
@@ -51,9 +54,12 @@ class Lod:
 
     def nastav_zpravu(self, zprava):
         self._zprava = zprava
-    
+
     def vypis_zpravu(self):
         return self._zprava
+    
+    def graficka_energie (self):
+        return graficky_ukazatel(self._energie, self._max_energie)
 
 class Korveta(Lod):
     
@@ -63,7 +69,7 @@ class Korveta(Lod):
             zprava = f'{self._jmeno} utrpela zasah o sile {poskozeni} hp - superstit.'
             self._trup -= poskozeni
             if self._trup < 0:
-                self._trup = 0        
+                self._trup = 0      
         else:
             zprava = f'{self._jmeno} odrazil utok stity.'
         self.nastav_zpravu(zprava)
